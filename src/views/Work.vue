@@ -1,34 +1,28 @@
 <template>
 <div>
 <div class="container">
-  <loadingScreen v-if="isLoading"></loadingScreen>
-  <div class="row">
+     <div class="row">
       <div class="container h100">
         <div class="contentBox h100">
           <div class="row">
             <span>We were the only ones in Latin America and Argentina respectively</span>
             <h1><div class="aqua">We do </div>lots of stuff.</h1>
-          </div>
         </div>
       </div>
   </div>
   <div class="row">
     <CardWork class="col-sm-6" v-for="(card, key) in dataCards" :key="key" :images="card.images" :contText="card.contText"/>
-    <CardWorkRight class="col-sm-6 pt-3" v-for="(card, key) in dataCards" :key="key" :images="card.images" :contText="card.contText"/>
+  </div>
   </div>
 </div>
 </div>
 </template>
 <script>
 import CardWork from '../components/CardWork/CardWork'
-import CardWorkRight from '../components/CardWork/CardRight'
-import loadingScreen from '../components/Loading/Loading-screen'
 export default {
   name: 'Work',
   components: {
-    CardWork,
-    CardWorkRight,
-    loadingScreen
+    CardWork
   },
   data () {
     return {
@@ -77,14 +71,8 @@ export default {
             conte: 'Branding Namig, Social media, content Website'
           }
         }
-      ],
-      isLoading: true
+      ]
     }
-  },
-  mounted () {
-    setTimeout(() => {
-      this.isLoading = false
-    }, 3000)
   }
 }
 </script>

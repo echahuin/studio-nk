@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-     <loading-screen v-if="isLoading"></loading-screen>
-      <div>
+    <loadingScreen v-if="isLoading"></loadingScreen>
+    <div v-else>
+       <div>
         <transition  name="bounce">
           <Nav v-show="activeNav" active="activeNav"/>
         </transition>
       </div>
       <div>
-        <router-view/>
+        <router-view />
       </div>
+    </div>
   </div>
 </template>
-
 <script>
 import Nav from './components/Nav/Nav'
 import LoadingScreen from './components/Loading/Loading-screen'
@@ -29,31 +30,27 @@ export default {
   },
   created () {
     window.addEventListener('scroll', this.handleScroll)
-    this.activeNav = false
+    this.activeNav = true
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     handleScroll (event) {
-      var scrolled = event.path[1].scrollY - 1
-      if (scrolled === 0) {
+      var scrolled = event.path[1].scrollY - 2
+      if (event.path[1].scrollY <= 2) {
         this.activeNav = true
+      } else if (event.path[1].scrollY >= scrolled) {
+        this.activeNav = false
       }
     }
   },
   mounted () {
     setTimeout(() => {
       this.isLoading = false
-      if (this.isLoading === false) {
-        this.activeNav = false
-      } else {
-        this.activeNav = true
-      }
     }, 3000)
   }
 }
-
 </script>
 
 <style>

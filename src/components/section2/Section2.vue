@@ -8,7 +8,6 @@
             <h1> as <div class="aqua">the best agency of the year. {{ count }}</div></h1>
             <span>We were the only ones in Latin America and Argentina respectively (Awwwards 16, ´17 — CSS Design Awards ´16, ´17, ´18)</span>
             <div>
-              <Adwards :count="count"/>
             </div>
           </div>
         </div>
@@ -18,11 +17,9 @@
 </template>
 
 <script>
-import Adwards from '../Adwards/Adwards'
 export default {
   name: 'Section2',
   components: {
-    Adwards
   },
   data: function () {
     return {

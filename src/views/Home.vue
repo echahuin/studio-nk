@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <loadingScreen v-if="isLoading"></loadingScreen>
-    <div class="container">
+  <div v-on:welcome="sayHi()">
+      <div class="container">
       <div class="row">
         <Section1 scrollanimation/>
       </div>
@@ -35,10 +34,10 @@ export default {
       isLoading: true
     }
   },
-  mounted () {
-    setTimeout(() => {
-      this.isLoading = false
-    }, 3000)
+  methods: {
+    sayHi () {
+      this.isLoading = true
+    }
   }
 }
 </script>
