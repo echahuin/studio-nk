@@ -4,12 +4,12 @@
     <div v-else>
        <div>
         <transition  name="bounce">
-          <Nav v-show="activeNav" active="activeNav"/>
+          <Nav v-if="activeNav"/>
         </transition>
       </div>
       <div>
-        <router-view />
-      </div>
+         <router-view/>
+       </div>
     </div>
   </div>
 </template>
@@ -37,12 +37,9 @@ export default {
   },
   methods: {
     handleScroll (event) {
-      var scrolled = event.path[1].scrollY - 2
-      if (event.path[1].scrollY <= 2) {
-        this.activeNav = true
-      } else if (event.path[1].scrollY >= scrolled) {
-        this.activeNav = false
-      }
+      console.log(event)
+      var scrolled = event.path[1].scrollY
+      console.log(scrolled)
     }
   },
   mounted () {

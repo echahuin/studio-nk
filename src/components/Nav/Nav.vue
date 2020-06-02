@@ -10,19 +10,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                  <a href="#home"><router-link  class="nav-link"  to="/">Home</router-link></a>
+                  <a><router-link  class="nav-link"   to="/" >Home</router-link></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#cont1">Opcion 1</a>
+                  <a class="nav-link" href="#cont1">Carrusel</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#cont2">Opcion 2</a>
+                  <a class="nav-link" href="#cont2">Slider</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#cont3">Opcion 3</a>
+                  <a class="nav-link" href="#cont3">Cards</a>
                 </li>
                 <li class="nav-item">
-                  <a ><router-link  class="nav-link" to="/work">Work</router-link></a>
+                  <a ><router-link  class="nav-link" to="/work"  >Work</router-link></a>
                 </li>
               </ul>
             </div>
@@ -36,6 +36,16 @@ export default {
   name: 'Nav',
   props: {
     activeNav: Boolean
+  },
+  data () {
+    return {
+      isActiveWork: true
+    }
+  },
+  methods: {
+    clicked () {
+      this.$emit('activeLoading')
+    }
   }
 }
 </script>
@@ -47,7 +57,6 @@ img {
 header
 {
     position: relative;
-    z-index: 1000000;
 }
 p
 {
