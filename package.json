@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "serialize-javascript": ">=3.1.0",
-    "elliptic": ">=6.5.3",
+    "elliptic": ">=6.5.4",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-eslint": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
